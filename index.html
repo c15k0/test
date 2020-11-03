@@ -1,0 +1,87 @@
+<!doctype html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Technical test Dev 2020</title>
+        <meta name="description" content="Technical test Dev 2020">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+        <meta name="theme-color" content="#fafafa">
+    </head>
+    <body class="container-fluid">
+        <section class="row">
+            <article class="col-12">
+                <h1>Technical test Dev 2020</h1>
+                <div class="alert alert-success">
+                    <b>001: Javascript</b> - Write a Solver class/object in Javascript that would accept an array in the
+                    form of:<br>
+                    [3, “Plus”, 1], [6, “Times”, 2]... or an object with properties “operand1”, “operator” and
+                    “operand2”, the option that you prefer, and returns the result of the arithmetic.<br>
+                    <b>Note:</b> element representing the operator is the name of a function or a reference to that function –
+                    implement them as well (Plus, Minus, Times and Divide).<br>
+                    <b>Note:</b> in the future there may be a need to support another operations without changing the
+                    existing code or changing it as little as possible.
+                </div>
+                <form class="col-12">
+                    <div class="input-group">
+                        <textarea class="form-control" rows="3" placeholder="Type here the data to calculate" id="001"></textarea>
+                        <div class="input-group-append" >
+                            <button type="button" class="btn btn-outline-secondary" onclick="Calculator.doCalc(document.getElementById('001').value)">Calculate</button>
+                        </div>
+                        <pre class="col-12 alert alert-warning" id="result-001">-</pre>
+                    </div>
+                </form>
+                <hr>
+                <div class="alert alert-success">
+                    <b>001(a): Javascript</b> - make your implementation recursive (so you can pass other operations
+                    instead of any or both operators, something like: <em>[3, “Plus”, [6, “Times”, 2]]</em>), that would
+                    be equivalent to 3 + (6 * 2).
+                </div>
+                <hr>
+                <div class="alert alert-success">
+                    <b>002: MySql</b> - Having the follow table structures: tbl_user: user_id, user_full_name, tbl_role:
+                    role_id, role_name and tbl_user_role: user_id, role_id.<br>
+                    - Create the mysql code to create these tables.
+                    - Write a query that will give you all users that belong to the role_name IT.
+                    - Write a query that will give you a list of users with no roles.
+                    - (Bonus) Write a query that will find the users with duplicate roles.
+                </div>
+                <hr>
+                <div class="alert alert-success">
+                    <b>003: Html & CSS</b> - Create a small gallery with some images of your choice. The images can
+                    be stored in a static list (so you can just use Javascript & HTML, and if you want some CSS, but
+                    don’t worry about the look and feel). Gallery doesn’t have to be of type “slider”, it should be
+                    possible to go to the next and previous image (it doesn’t matter if it’s using arrows, clicking in a
+                    part of the image...), but Gallery MUST not auto-advance.<br>
+                    We’d like to track each image impression in our own or a third-party real-time analytics system
+                    (you can use any invented url, just make sure that some url with at least an image identifier is
+                    called for each image impression).<br>
+                    That analytics system is sitting on a completely different domain (for example
+                    http://dev.test06/index.php) and for the purpose of that exercise is very basic:<br>
+                    <code>
+                    <&#63;php<br>
+                    $log = "GET:".print_r($_GET,1)."POST:".print_r($_POST,1);<br>
+                    error_log( $log, 3, 'log.log');<br>
+                    &#63;>
+                    </code>
+                </div>
+                <hr>
+                <div class="alert alert-success">
+                    <b>004: PHP/Python*</b> - The Canadian National Lottery draw takes place
+                    twice per week, on Tuesday and Sunday at 9.30 pm.<br>
+                    Write a class in PHP and Python that returns the next valid draw date based on the current date.<br>
+                    Make your code able to calculate the next draw based on an optionally supplied date and time.<br>
+                    <b>*Note:</b> if you can, write it in both languages, else do it in the one that you can.
+                </div>
+            </article>
+        </section>
+        <script src="js/modernizr.js"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+        <script src="001/001.js" type="application/javascript"></script>
+    </body>
+</html>
