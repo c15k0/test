@@ -28,11 +28,9 @@ class Calculator {
             // operation is undefined or not a valid array
         }
         if(data.length === 3) {
-            let operand1 = data[0];
-            let operand2 = data[2];
             let operator = data[1];
             if(this.checkOperator(operator.toString())) {
-                let result = this.parseOperation(operand1, operand2, operator);
+                let result = this.recursiveCalc(data);
                 this.paintResult(resultId, result.toString());
             } else {
                 this.paintResult(resultId, 'Operation <b>"' + operator + '"</b> does not exists');
@@ -42,7 +40,34 @@ class Calculator {
         }
     }
 
-    private static parseOperation(operand1: any, operand2: any, operator: string) : number {
+    /**
+     * @param complexOperation array
+     */
+    public static recursiveCalc(complexOperation: Array<any>): number {
+        let result : number = NaN;
+        if(complexOperation.length === 3) {
+            let operand1 = complexOperation[0];
+            if(Array.isArray(operand1)) {
+                operand1 = this.recursiveCalc(operand1);
+            }
+            let operand2 = complexOperation[2];
+            if(Array.isArray(operand2)) {
+                operand2 = this.recursiveCalc(operand2);
+            }
+            let operation = complexOperation[1];
+            result = this.parseOperation(operand1, operand2, operation);
+        }
+        return result;
+    }
+
+    /**
+     *
+     * @param operand1 number
+     * @param operand2 number
+     * @param operator string
+     * @private
+     */
+    private static parseOperation(operand1: number, operand2: number, operator: string) : number {
         let result = 0;
         switch(operator) {
             case this.operations[0]: result = operand1 + operand2; break;

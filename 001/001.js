@@ -22,11 +22,9 @@ var Calculator = /** @class */ (function () {
             // operation is undefined or not a valid array
         }
         if (data.length === 3) {
-            var operand1 = data[0];
-            var operand2 = data[2];
             var operator = data[1];
             if (this.checkOperator(operator.toString())) {
-                var result = this.parseOperation(operand1, operand2, operator);
+                var result = this.recursiveCalc(data);
                 this.paintResult(resultId, result.toString());
             }
             else {
@@ -37,6 +35,32 @@ var Calculator = /** @class */ (function () {
             this.paintResult(resultId, 'Array data is not valid');
         }
     };
+    /**
+     * @param complexOperation array
+     */
+    Calculator.recursiveCalc = function (complexOperation) {
+        var result = NaN;
+        if (complexOperation.length === 3) {
+            var operand1 = complexOperation[0];
+            if (Array.isArray(operand1)) {
+                operand1 = this.recursiveCalc(operand1);
+            }
+            var operand2 = complexOperation[2];
+            if (Array.isArray(operand2)) {
+                operand2 = this.recursiveCalc(operand2);
+            }
+            var operation = complexOperation[1];
+            result = this.parseOperation(operand1, operand2, operation);
+        }
+        return result;
+    };
+    /**
+     *
+     * @param operand1 number
+     * @param operand2 number
+     * @param operator string
+     * @private
+     */
     Calculator.parseOperation = function (operand1, operand2, operator) {
         var result = 0;
         switch (operator) {
