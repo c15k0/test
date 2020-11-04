@@ -25,7 +25,7 @@
                     <b>Note:</b> in the future there may be a need to support another operations without changing the
                     existing code or changing it as little as possible.
                 </div>
-                <form class="col-12">
+                <form class="col-12" onsubmit="return false;" novalidate>
                     <div class="input-group">
                         <textarea class="form-control" rows="3" placeholder="Type here the data to calculate" id="001"></textarea>
                         <div class="input-group-append" >
@@ -40,15 +40,60 @@
                     instead of any or both operators, something like: <em>[3, “Plus”, [6, “Times”, 2]]</em>), that would
                     be equivalent to 3 + (6 * 2).
                 </div>
+                <form class="col-12" onsubmit="return false;" novalidate>
+                    <div class="input-group">
+                        <textarea class="form-control" rows="3" placeholder="Type here the data to calculate" id="002"></textarea>
+                        <div class="input-group-append" >
+                            <button type="button" class="btn btn-outline-secondary" onclick="Calculator.doCalc(document.getElementById('002').value, 'result-002')">Calculate</button>
+                        </div>
+                        <pre class="col-12 alert alert-warning" id="result-002">-</pre>
+                    </div>
+                </form>
                 <hr>
                 <div class="alert alert-success">
                     <b>002: MySql</b> - Having the follow table structures: tbl_user: user_id, user_full_name, tbl_role:
                     role_id, role_name and tbl_user_role: user_id, role_id.<br>
-                    - Create the mysql code to create these tables.
-                    - Write a query that will give you all users that belong to the role_name IT.
-                    - Write a query that will give you a list of users with no roles.
+                    - Create the mysql code to create these tables.<br>
+                    - Write a query that will give you all users that belong to the role_name IT.<br>
+                    - Write a query that will give you a list of users with no roles.<br>
                     - (Bonus) Write a query that will find the users with duplicate roles.
                 </div>
+                <pre class="col-12 alert alert-warning">
+CREATE TABLE `tbl_user`  (
+  `user_id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_full_name` varchar(255) NOT NULL,
+  PRIMARY KEY (`user_id`)
+);<br>
+CREATE TABLE `tbl_role`  (
+  `role_id` int(11) NOT NULL AUTO_INCREMENT,
+  `role_name` varchar(100) NOT NULL,
+  PRIMARY KEY (`role_id`)
+);<br>
+CREATE TABLE `tbl_user_role`  (
+  `user_id` int(11) NOT NULL,
+  `role_id` int(11) NOT NULL,
+  CONSTRAINT `fk_user_id` FOREIGN KEY (`user_id`) REFERENCES `tbl_user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_role_id` FOREIGN KEY (`role_id`) REFERENCES `tbl_role` (`role_id`) ON DELETE CASCADE ON UPDATE CASCADE
+);</pre>
+                <pre class="col-12 alert alert-warning">
+SELECT u.* FROM tbl_user u
+INNER JOIN tbl_user_role ur ON ur.user_id = u.user_id
+INNER JOIN tbl_role r on r.role_id = ur.role_id
+WHERE r.role_name = 'IT';</pre>
+                <pre class="col-12 alert alert-warning">
+-- OPTION 1
+SELECT u.* FROM tbl_user u
+LEFT JOIN tbl_user_role ur ON ur.user_id = u.user_id
+WHERE ur.user_id IS NULL;
+-- OPTION 2
+SELECT u.* FROM tbl_user u
+LEFT JOIN tbl_user_role ur ON ur.user_id = u.user_id
+HAVING count(DISTINCT ur.role_id) = 0;</pre>
+                <pre class="col-12 alert alert-warning">
+SELECT u.* FROM tbl_user u
+INNER JOIN tbl_user_role ur ON ur.user_id = u.user_id
+GROUP BY ur.user_id, ur.role_id
+HAVING COUNT(DISTINCT ur.role_id) > 1;</pre>
                 <hr>
                 <div class="alert alert-success">
                     <b>003: Html & CSS</b> - Create a small gallery with some images of your choice. The images can
