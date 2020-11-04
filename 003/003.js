@@ -1,6 +1,7 @@
 (function() {
     $('#carousel').carousel({
-        ride: false
+        pause: true,
+        interval: false
     });
     $('#carousel').on('slid.bs.carousel', (ev) => {
         let id = $(ev.target).find('img').attr('id');
@@ -14,6 +15,6 @@
             url: "http://localhost:8889/track.php?_i=" + id
         }).done(() => {
             console.log('Tracked!!');
-        })
+        });
     });
 })(window);

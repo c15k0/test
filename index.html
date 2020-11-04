@@ -8,8 +8,14 @@
 
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/tempusdominus-bootstrap-4.min.css">
+        <link rel="stylesheet" href="css/all.min.css">
 
-        <meta name="theme-color" content="#fafafa">
+        <style>
+            html body {
+                padding-bottom: 100px;
+            }
+        </style>
     </head>
     <body class="container-fluid">
         <section class="row">
@@ -154,13 +160,43 @@ HAVING COUNT(DISTINCT ur.role_id) > 1;</pre>
                     Make your code able to calculate the next draw based on an optionally supplied date and time.<br>
                     <b>*Note:</b> if you can, write it in both languages, else do it in the one that you can.
                 </div>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <div class="input-group date" id="datepicker" data-target-input="nearest">
+                                <input type="text" class="form-control datetimepicker-input" data-target="#datepicker" id="date"/>
+                                <div class="input-group-append" data-target="#datepicker" data-toggle="datetimepicker">
+                                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <div class="input-group date" id="timepicker" data-target-input="nearest">
+                                <input type="text" class="form-control datetimepicker-input" data-target="#timepicker" id="time"/>
+                                <div class="input-group-append" data-target="#timepicker" data-toggle="datetimepicker">
+                                    <div class="input-group-text"><i class="fa fa-clock"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <button type="button" class="btn btn-block btn-primary" onclick="calculateDrawDate();">Get next draw date</button>
+                        <br>
+                        <pre class="col-12 alert alert-warning" id="draw-result">-</pre>
+                    </div>
+                </div>
             </article>
         </section>
         <script src="js/modernizr.js" type="application/javascript" ></script>
         <script src="js/jquery-3.5.1.min.js" type="application/javascript" ></script>
+        <script src="js/moment.js" type="application/javascript" ></script>
         <script src="js/popper.min.js" type="application/javascript" ></script>
         <script src="js/bootstrap.min.js" type="application/javascript" ></script>
+        <script src="js/tempusdominus-bootstrap-4.min.js" type="application/javascript" ></script>
         <script src="001/001.js" type="application/javascript"></script>
         <script src="003/003.js" type="application/javascript"></script>
+        <script src="004/004.js" type="application/javascript"></script>
     </body>
 </html>
