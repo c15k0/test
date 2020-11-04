@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
 
         <meta name="theme-color" content="#fafafa">
     </head>
@@ -49,7 +49,9 @@
                         <pre class="col-12 alert alert-warning" id="result-002">-</pre>
                     </div>
                 </form>
-                <hr>
+            </article>
+            <hr>
+            <article class="col-12">
                 <div class="alert alert-success">
                     <b>002: MySql</b> - Having the follow table structures: tbl_user: user_id, user_full_name, tbl_role:
                     role_id, role_name and tbl_user_role: user_id, role_id.<br>
@@ -94,7 +96,9 @@ SELECT u.* FROM tbl_user u
 INNER JOIN tbl_user_role ur ON ur.user_id = u.user_id
 GROUP BY ur.user_id, ur.role_id
 HAVING COUNT(DISTINCT ur.role_id) > 1;</pre>
-                <hr>
+            </article>
+            <hr>
+            <article class="col-12">
                 <div class="alert alert-success">
                     <b>003: Html & CSS</b> - Create a small gallery with some images of your choice. The images can
                     be stored in a static list (so you can just use Javascript & HTML, and if you want some CSS, but
@@ -113,7 +117,36 @@ HAVING COUNT(DISTINCT ur.role_id) > 1;</pre>
                     &#63;>
                     </code>
                 </div>
-                <hr>
+                <div id="carousel" class="carousel slide carousel-fade col-12" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="img/1.png" class="d-block w-100" alt="Random image 1" id="random_1">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/2.png" class="d-block w-100" alt="Random image 2" id="random_2">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/3.png" class="d-block w-100" alt="Random image 3" id="random_3">
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+                <br>
+            </article>
+            <hr>
+            <article class="col-12">
                 <div class="alert alert-success">
                     <b>004: PHP/Python*</b> - The Canadian National Lottery draw takes place
                     twice per week, on Tuesday and Sunday at 9.30 pm.<br>
@@ -123,10 +156,11 @@ HAVING COUNT(DISTINCT ur.role_id) > 1;</pre>
                 </div>
             </article>
         </section>
-        <script src="js/modernizr.js"></script>
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+        <script src="js/modernizr.js" type="application/javascript" ></script>
+        <script src="js/jquery-3.5.1.min.js" type="application/javascript" ></script>
+        <script src="js/popper.min.js" type="application/javascript" ></script>
+        <script src="js/bootstrap.min.js" type="application/javascript" ></script>
         <script src="001/001.js" type="application/javascript"></script>
+        <script src="003/003.js" type="application/javascript"></script>
     </body>
 </html>
